@@ -6,7 +6,9 @@ import java.sql.SQLException;
 
 /*
 查看数据库和表的编码集show create database/table tangshi\G
+创建数据库时设置字符编码集
 CREATE DATABASE tangshi_server CHARSET utf8mb4;
+创建唐诗表（设置编码集）
 CREATE TABLE tangshi(
 id INT PRIMARY KEY AUTO_INCREMENT,
 sha256 CHAR(64) NOT NULL UNIQUE,
@@ -25,10 +27,10 @@ public class DBUtils {
         //不带连接池的
         //DataSource dataSource1=new MysqlDataSource();
         dataSource.setServerName("127.0.0.1");
-        dataSource.setPort(3306);
-        dataSource.setUser("root");
-        dataSource.setPassword("000000zxcvbnm");
-        dataSource.setDatabaseName("tangshi_server");
+        dataSource.setPort(3306);//数据库端口
+        dataSource.setUser("root");//数据库用户名
+        dataSource.setPassword("000000zxcvbnm");//数据库密码
+        dataSource.setDatabaseName("tangshi_server");//打开数据库
         dataSource.setUseSSL(false);
         dataSource.setCharacterEncoding("UTF-8");
         return dataSource;
